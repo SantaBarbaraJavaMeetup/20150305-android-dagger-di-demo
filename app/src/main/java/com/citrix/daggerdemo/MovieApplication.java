@@ -1,9 +1,21 @@
 package com.citrix.daggerdemo;
 
-public class MovieApplication extends DaggerApplication {
+import android.app.Application;
+
+import dagger.ObjectGraph;
+
+public class MovieApplication extends Application {
+
+    private ObjectGraph objectGraph;
 
     @Override
-    protected Object[] modules() {
-        return new Object[] {MovieModule.class};
+    public void onCreate() {
+        super.onCreate();
+        objectGraph = ObjectGraph.create(MovieModule.class);
     }
+
+    public void inject(Object obj) {
+        objectGraph.inject(obj);
+    }
+
 }

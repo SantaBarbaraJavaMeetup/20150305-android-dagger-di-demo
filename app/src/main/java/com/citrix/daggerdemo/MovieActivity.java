@@ -21,7 +21,7 @@ public class MovieActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((DaggerApplication)getApplication()).inject(this);
+        ((MovieApplication)getApplication()).inject(this);
 
         setContentView(R.layout.activity_dagger);
 
